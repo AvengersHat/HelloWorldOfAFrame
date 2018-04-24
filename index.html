@@ -1,7 +1,17 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-
+    <script>
+    AFRAME.registerComponent("daydream-listener", {
+      init: function() {
+        this.el.addEventListener("trackpaddown", (e) => {
+          console.log("track down: ");
+          console.log(e);
+        })
+      }
+    })
+  
+    </script>
   </head>
   <body>
     <a-scene>
@@ -16,7 +26,7 @@
           <a-camera fov="80"></a-camera>
       </a-entity>
 
-      <a-entity daydream-controls"hand: right"></a-entity>
+      <a-entity daydream-controls daydream-listener></a-entity>
 
       <a-sky color="#87d1c6"></a-sky>
     </a-scene>
